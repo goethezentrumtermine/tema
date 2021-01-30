@@ -674,13 +674,15 @@ ul .profile-pic:hover {
 }
 
 @media(max-width:1120px) {
-    .users {
+    .none {
         display: none;
     }
-    .col-sm-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .users {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
+    .col-sm-4 {}
     .col-sm-8 {
         flex: 0 0 100%;
         max-width: 100%;
@@ -947,7 +949,7 @@ ul .profile-pic:hover {
 }
 
 .new-ntf {
-    background-image: url("../img/new-ntf.jpg");
+    background-image: url("new-ntf.jpg");
     background-size: 17px;
     background-repeat: no-repeat;
     background-size: 15px;
