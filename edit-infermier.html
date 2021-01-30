@@ -2,23 +2,17 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Dashboard</title>
+    <title>Admin | Ndrysho Detajet e Infermierit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
     <script src="sidenavigation.js"></script>
     <script src="imagebrowse.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#widget li').on('click', function() {
-                $(this).removeClass('new-ntf');
-            });
-        });
-    </script>
+    <script src="input-masks.js"></script>
     <script>
         function reportWindowSize() {
             var widthOutput = window.innerWidth;
@@ -29,20 +23,8 @@
                 $(".openbtn").css("display", "inline");
                 $(".sidenav").css("width", "60px");
             }
-            if (widthOutput < 1120) {
-                closeChat();
-            } else {}
         }
 
-        function closeChat() {
-            document.getElementById("Chatbox").style.display = "none";
-
-        }
-
-        function openChat() {
-            document.getElementById("Chatbox").style.display = "inline";
-
-        }
         window.onresize = reportWindowSize;
     </script>
 </head>
@@ -300,214 +282,101 @@
                 </div>
             </div>
         </div>
+
         <div class="page" style="width: 100%;">
             <div class="card-header">
-                <p>Admin | Dashboard</p>
+                <p>Admin | Ndrysho Detajet e Infermierit</p>
             </div>
-            <div class="container-fullw">
-                <div class="row">
-                    <div class="col-sm-4 none">
-                        <div class="col">
-                            <div class="panel panel-white text-center" onclick="window.open('manage-doctors.html', 'mywindow');">
-                                <div class="panel-body wid">
-                                    <div class="fa-stack fa-2x image-wid">
-                                        <img src="doctors-clipart.png">
-                                    </div>
-                                    <h2 class="StepTitle">Menaxho Doktorret</h2>
-                                    <p class="links cl-effect-1">
-                                        Total Users :6
-                                    </p>
-                                </div>
+            <div class=" container-fullw">
+                <div class="panel-body">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Arti Sadikaj</h5>
+                        <div class="info-panel">
+                            <div class="d-inline-flex">
+                                <h6 class="panel-title">Regjistruar me:</h6>
+                                <p class="reg-date">21.12.2020</p>
                             </div>
-                            <div class="panel panel-white no-radius text-center" onclick="window.open('manage-patients.html', 'mywindow');">
-                                <div class="panel-body wid">
-                                    <div class="fa-stack fa-2x image-wid">
-                                        <img src="patients-clipart.png">
-                                    </div>
-                                    <h2 class="StepTitle">Menaxho Pacientet</h2>
-                                    <p class="links cl-effect-1">
-                                        Total Users :6
-                                    </p>
-                                </div>
+                            <div class="d-inline-flex">
+                                <h6 class="panel-title">Hera e fundit e perditesimit:</h6>
+                                <p class="update-date">21.12.2020</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 none">
-                        <div class="col">
-                            <div class="panel panel-white no-radius text-center" onclick="window.open('manage-infermiers.html', 'mywindow');">
-                                <div class="panel-body wid">
-                                    <div class="fa-stack fa-2x image-wid">
-                                        <img src="nurses-clipart.png">
-                                    </div>
-                                    <h2 class="StepTitle">Menaxho Infermieret</h2>
-                                    <p class="links cl-effect-1">
-                                        Total Users :6
-                                    </p>
+                    <div class="panel-form">
+                        <form>
+                            <div class="circle form-group">
+                                <div class="input-formimg">
+                                    <img id="preview" class="circle" src="doctor.png">
                                 </div>
                             </div>
-                            <div class="panel panel-white no-radius text-center" onclick="window.open('manage-receptionists.html', 'mywindow');">
-                                <div class="panel-body wid">
-                                    <div class="fa-stack fa-2x image-wid">
-                                        <img src="receptionists-clipart.png">
-                                    </div>
-                                    <h2 class=" StepTitle ">Menaxho Recepsionistet</h2>
-                                    <p class="links cl-effect-1">
-                                        Total Users :6
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 users">
-                        <div class="panel panel-white no-radius text-center">
-                            <div class="panel-body">
-                                <div>
-                                    <p class="wid-info text-center">Aktiv</p>
-                                    <hr class="divider" align="center">
-                                </div>
-                                <div class="active-users">
-                                    <div class="widget" id="widget">
-
-                                        <div class="active-now">
-                                            <ul class="list-group pmd-list pmd-card-list pmd-inset-divider">
-                                                <li id="user-row" class="list-group-item d-flex profile-pic new-ntf" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Albdfgdfan Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li id="user-row" class="list-group-item d-flex profile-pic new-ntf" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li id="user-row" class="list-group-item d-flex profile-pic new-ntf" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">blerim</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex profile-pic" onclick="openChat()">
-                                                    <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                                                        <img alt="40x40" src="doctor.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                                                        <p class="pmd-list-subtitle position">Doktorr</p>
-                                                    </div>
-                                                    <div class="status">
-                                                    </div>
-                                                </li>
-                                            </ul>
+                            <div class="form-group">
+                                <form method="post" id="image-form">
+                                    <div class="input-group my-3">
+                                        <input type="text" class="form-control" disabled placeholder="Ndryshoni fotografine" id="file">
+                                        <div class="input-group-append">
+                                            <button type="button" class="browse btn btn-primary">Ngarkoni...</button>
                                         </div>
                                     </div>
+                                    <input type="file" name="img[]" class="file" accept="image/*">
+                                </form>
+                            </div>
+
+                            <div class="div-inlineflex">
+                                <div class="form-group">
+                                    <label class="input-title">Emri i infermierit</label>
+                                    <input type="text" id="nameInf" class="form-control" placeholder="Sheno emrin e infermierit" value="Arti">
+                                </div>
+                                <div class="form-group">
+                                    <label class="input-title">Mbiemri i infermierit</label>
+                                    <input type="text" id="surnameInf" class="form-control" placeholder="Sheno mbiemrin e infermierit" value="Sadikaj">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row chatbox" id="Chatbox">
-
-                    <div class="list-group-item d-flex profile-pic receiver-1">
-                        <a href="javascript:void(0);" class="pmd-avatar-list-img" title="profile-link">
-                            <img alt="40x40" src="doctor.png">
-                        </a>
-                        <div class="media-body d-inline-flex">
-                            <h4 class="pmd-list-title name-surname Step-title">Alban Berisha</h4>
-                        </div>
-                        <a href="javascript:void(0)" class="closechat" id="closechat" onclick="closeChat()">×</a>
-                    </div>
-
-                    <div class="messages" id="Messages">
-                        <div class='me'><span class='receiver-time'></span></div>
-
-                        <div class='receiver'><span class='receiver-time'></span></div>
-                    </div>
-
-
-                    <div class="type-send">
-                        <form method="post" id="message-form">
-                            <div class="form-group d-inline-flex" onsubmit="return false">
-                                <textarea id="text-msg" class="form-control type-text" rows="1" name="text-type" id="text-type" placeholder="Sheno mesazhin"></textarea>
-                                <button id="submit_btn" type="submit" name="submit" class="btn btn-primary btn-send">Dergo</button>
+                            <div class="div-inlineflex">
+                                <div class="form-group">
+                                    <label class="input-title">Datelindja</label>
+                                    <input type="date" class="form-control" id="Infstart-date" name="infstart_date" value="2018-07-22" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="input-title">Gjinia</label>
+                                    <div class="input-title-btn">
+                                        <input type="radio" name="infgender" value="male" checked> Mashkull<br>
+                                        <input type="radio" name="infgender" value="female"> Femër
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="input-title">Adresa</label>
+                                <input type="text" class="form-control" id="adressInf" name="adressinf" placeholder="Adresa" value="Studenice, Istog">
+                            </div>
+                            <div class="form-group">
+                                <label class="input-title">Numri i telefonit</label>
+                                <input class="form-control" id="phone-number" value="38349549509"> </div>
+                            <div class="form-group">
+                                <label class="input-title" for="InfermierDepartament">
+                                   Departamenti
+                                </label>
+                                <select name="Infermierdepartament" class="form-control" required="true">
+                                    <option value="">Selekto departamentin</option>
+                                    <option selected>Lindjet</option>
+                                                                                                    
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="input-title">Emaili</label>
+                                <input type="email" readonly="readonly" class="form-control" name="infemail" placeholder="Emaili" required="required" value="Arti@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="input-title">Username</label>
+                                <input type="text" class="form-control" name="infusername" placeholder="Username" required="required" value="Arti18">
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <button type="submit" class="btn btn-primary">Ndrysho</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 
